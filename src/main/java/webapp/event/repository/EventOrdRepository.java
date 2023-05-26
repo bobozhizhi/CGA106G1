@@ -16,10 +16,10 @@ import java.util.List;
 public interface EventOrdRepository extends JpaRepository<EventOrdVO, Integer> {
     // connection pool + similar to DAO(both support by extends Jpa repository)
     // program new DAO behavior here
-      @Modifying
+    
     @Query(value = "SELECT * FROM boardgame.event_ord WHERE EVENT_NO= :eventno", nativeQuery = true)
     List<EventOrdVO> selectmembyevent(@Param("eventno") Integer eventno);
-    @Modifying
+    
     @Query(value = "SELECT * FROM boardgame.event_ord WHERE MEM_NO= :memno", nativeQuery = true)
     List<EventOrdVO> selectbyeventbymem(@Param("memno") Integer memno);
 
